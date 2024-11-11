@@ -45,19 +45,13 @@ jobs:
         name: Jacoco coverage results
         path: target/site/jacoco
 
-    - name: Cache build
-      uses: actions/cache@v3
-      with:
-        key: cached-build-${{github.sha}}
-        path: .
-
   # Uploads dependency graph to GitHub to receive Dependabot alerts 
   update_dependence_graph:
 
     runs-on: ubuntu-latest
 
     permissions:
-      contents: write
+      contents: read
 
     steps:
 
